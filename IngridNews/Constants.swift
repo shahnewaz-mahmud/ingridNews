@@ -10,5 +10,6 @@ import Foundation
 
 class Constants {
     static let CatagoryCVCellId = "CatagoryCVCell"
+    static let newsCVCellId = "NewsCVCell"
     
 }

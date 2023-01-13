@@ -44,7 +44,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ylh-mR-q9g" firstAttribute="leading" secondItem="E9y-MH-8dR" secondAttribute="leading" id="0GE-8n-8dn"/>
                             <constraint firstItem="bIr-7t-Rtr" firstAttribute="centerX" secondItem="E9y-MH-8dR" secondAttribute="centerX" id="1xR-uu-pKg"/>
@@ -75,9 +75,6 @@
     </objects>
     <resources>
         <image name="doc.on.doc" catalog="system" width="116" height="128"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

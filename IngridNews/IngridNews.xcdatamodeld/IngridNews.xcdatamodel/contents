@@ -1,4 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21C52" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="NewsModel" representedClassName="NewsModel" syncable="YES">
+        <attribute name="author" optional="YES" attributeType="String"/>
+        <attribute name="catagoryName" optional="YES" attributeType="String"/>
+        <attribute name="content" optional="YES" attributeType="String"/>
+        <attribute name="isBookMarked" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="newsDescription" optional="YES" attributeType="String"/>
+        <attribute name="newsId" optional="YES" attributeType="String"/>
+        <attribute name="publishedAt" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+        <attribute name="urlToImage" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="SavedNewsModel" representedClassName="SavedNewsModel" syncable="YES">
+        <attribute name="author" optional="YES" attributeType="String"/>
+        <attribute name="catagoryName" optional="YES" attributeType="String"/>
+        <attribute name="content" optional="YES" attributeType="String"/>
+        <attribute name="newsDescription" optional="YES" attributeType="String"/>
+        <attribute name="newsId" optional="YES" attributeType="String"/>
+        <attribute name="publishedAt" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+        <attribute name="urlToImage" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="NewsModel" positionX="-63" positionY="-18" width="128" height="179"/>
+        <element name="SavedNewsModel" positionX="-36" positionY="63" width="128" height="164"/>
+    </elements>
 </model>

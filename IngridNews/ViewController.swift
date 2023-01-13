@@ -14,18 +14,31 @@ class ViewController: UIViewController {
     @IBOutlet weak var newsCollectionView: UICollectionView!
     @IBOutlet weak var searchField: UITextField!
     
+    @IBOutlet weak var tabBarBackground: UIView!
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        catagoryCollectionView.tag = 0
+        newsCollectionView.tag = 1
+        
         configureHeaderSection()
-        configureCatagoryCollectionView()
+        configureCatagoryCell()
+        configureNewsCell()
+       
         
         catagoryCollectionView.dataSource = self
         catagoryCollectionView.delegate = self
         
         newsCollectionView.dataSource = self
         newsCollectionView.delegate = self
+        
+        //syncNews(catagory: "All")
+        CoreDataHelper.shared.getAllNews(catagory: "All")
+        
+        
     }
     
     func configureHeaderSection(){
@@ -33,10 +46,14 @@ class ViewController: UIViewController {
         headerView.clipsToBounds = true
         headerView.layer.cornerRadius = 25
         headerView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        headerView.dropShadow()
         searchField.padding = 30
+        
+        tabBarBackground.layer.cornerRadius = 25
+    
     }
     
-    func configureCatagoryCollectionView(){
+    func configureCatagoryCell(){
         let catagoryCollectionCellNib = UINib(nibName: Constants.CatagoryCVCellId, bundle: nil)
         catagoryCollectionView.register(catagoryCollectionCellNib, forCellWithReuseIdentifier: Constants.CatagoryCVCellId)
 
@@ -45,18 +62,77 @@ class ViewController: UIViewController {
         collectionViewCellLayout.scrollDirection = .horizontal
         catagoryCollectionView.collectionViewLayout = collectionViewCellLayout
     }
+    
+    func configureNewsCell(){
+        let newsCollectionCellNib = UINib(nibName: Constants.newsCVCellId, bundle: nil)
+        newsCollectionView.register(newsCollectionCellNib, forCellWithReuseIdentifier: Constants.newsCVCellId)
+
+        let collectionViewCellLayout = UICollectionViewFlowLayout()
+        collectionViewCellLayout.itemSize = CGSize(width: 130, height: 130)
+        collectionViewCellLayout.scrollDirection = .vertical
+        newsCollectionView.collectionViewLayout = collectionViewCellLayout
+    }
+    
+    func refreshNewsList(){
+        
+    }
+    
+    
+    func syncNews(catagory: String){
+        guard let url = URL(string: API.apiDomain) else { return }
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            if let error = error {
+                print("There was an error: \(error.localizedDescription)")
+            } else {
+                let newsList = try! JSONDecoder().decode(NewsList.self, from: data!)
+                
+                if let articles = newsList.articles {
+                    for i in 0...articles.count-1{
+                        CoreDataHelper.shared.addNews(news: articles[i], catagory: catagory)
+                    }
+                }
+                
+                CoreDataHelper.shared.getAllNews(catagory: catagory)
+            }
+
+        }.resume()
+    }
 
 
 }
 
 extension ViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        
+        switch collectionView.tag {
+                case 0:
+                    return 5
+                case 1:
+                    print("Total News",NewsModel.newsList.count)
+                    return NewsModel.newsList.count
+                        //return 5
+                default:
+                    return 0
+            }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let catagoryCollectionViewCell = catagoryCollectionView.dequeueReusableCell(withReuseIdentifier: Constants.CatagoryCVCellId, for: indexPath)
-        return catagoryCollectionViewCell
+        
+        switch collectionView.tag {
+            case 0:
+                let catagoryCollectionViewCell = catagoryCollectionView.dequeueReusableCell(withReuseIdentifier: Constants.CatagoryCVCellId, for: indexPath)
+                return catagoryCollectionViewCell
+                
+            case 1:
+            let newsCollectionViewCell = newsCollectionView.dequeueReusableCell(withReuseIdentifier: Constants.newsCVCellId, for: indexPath)
+                return newsCollectionViewCell
+                
+            default:
+                return UICollectionViewCell()
+        }
+
+        
     }
 }
 
@@ -87,7 +163,15 @@ extension ViewController: UICollectionViewDelegate {
 extension ViewController: UICollectionViewDelegateFlowLayout
 {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: 130, height: 130)
+        switch collectionView.tag {
+                case 0:
+                    return CGSize(width: 130, height: 130)
+                case 1:
+                    return CGSize(width: 400, height: 200)
+                default:
+                    return CGSize(width: 130, height: 130)
+            }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -98,6 +182,8 @@ extension ViewController: UICollectionViewDelegateFlowLayout
         return 30
     }
 }
+
+
 
 extension UIColor {
     convenience init(hex: Int) {
