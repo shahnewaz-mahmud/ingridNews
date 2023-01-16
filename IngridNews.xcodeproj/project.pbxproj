@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3584710329745C7B00B4750A /* BookmarkedNewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3584710229745C7B00B4750A /* BookmarkedNewsVC.swift */; };
+		358471072974605900B4750A /* BookmarkedNewsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358471052974605900B4750A /* BookmarkedNewsTVCell.swift */; };
+		358471082974605900B4750A /* BookmarkedNewsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 358471062974605900B4750A /* BookmarkedNewsTVCell.xib */; };
+		35BA075A2972752F00E878EC /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BA07592972752F00E878EC /* Shared.swift */; };
+		35BA075E29727A0C00E878EC /* CatagoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BA075D29727A0C00E878EC /* CatagoryInfo.swift */; };
+		35BA0761297306EF00E878EC /* NewsDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BA0760297306EF00E878EC /* NewsDetailsVC.swift */; };
+		42C5983EA7EDF61B2E1CFAD4 /* Pods_IngridNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CF6DA7095CA11D988D5C58 /* Pods_IngridNews.framework */; };
 		8996B618296FB3BC00031905 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8996B617296FB3BC00031905 /* AppDelegate.swift */; };
 		8996B61A296FB3BC00031905 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8996B619296FB3BC00031905 /* SceneDelegate.swift */; };
 		8996B61C296FB3BC00031905 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8996B61B296FB3BC00031905 /* ViewController.swift */; };
@@ -17,6 +24,7 @@
 		8996B633296FDE7300031905 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8996B632296FDE7300031905 /* Constants.swift */; };
 		8996B637296FEF2500031905 /* CatagoryCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8996B635296FEF2500031905 /* CatagoryCVCell.swift */; };
 		8996B638296FEF2500031905 /* CatagoryCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8996B636296FEF2500031905 /* CatagoryCVCell.xib */; };
+		89C1360C29754EED00AC4EA9 /* NewsWebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1360B29754EEC00AC4EA9 /* NewsWebVC.swift */; };
 		89CD57E529714FD400BD1B86 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CD57E429714FD400BD1B86 /* CoreDataHelper.swift */; };
 		89CD57F12971576B00BD1B86 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CD57F02971576B00BD1B86 /* API.swift */; };
 		89CD57F32971593100BD1B86 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CD57F22971593100BD1B86 /* News.swift */; };
@@ -30,6 +38,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16333CCE18A185DD4F7B499A /* Pods-IngridNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IngridNews.release.xcconfig"; path = "Target Support Files/Pods-IngridNews/Pods-IngridNews.release.xcconfig"; sourceTree = "<group>"; };
+		3584710229745C7B00B4750A /* BookmarkedNewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkedNewsVC.swift; sourceTree = "<group>"; };
+		358471052974605900B4750A /* BookmarkedNewsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkedNewsTVCell.swift; sourceTree = "<group>"; };
+		358471062974605900B4750A /* BookmarkedNewsTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookmarkedNewsTVCell.xib; sourceTree = "<group>"; };
+		35BA07592972752F00E878EC /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
+		35BA075D29727A0C00E878EC /* CatagoryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatagoryInfo.swift; sourceTree = "<group>"; };
+		35BA0760297306EF00E878EC /* NewsDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsVC.swift; sourceTree = "<group>"; };
+		74CF6DA7095CA11D988D5C58 /* Pods_IngridNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IngridNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E28F64D69D9BCED4A5BAAE3 /* Pods-IngridNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IngridNews.debug.xcconfig"; path = "Target Support Files/Pods-IngridNews/Pods-IngridNews.debug.xcconfig"; sourceTree = "<group>"; };
 		8996B614296FB3BC00031905 /* IngridNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IngridNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8996B617296FB3BC00031905 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8996B619296FB3BC00031905 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,8 +57,9 @@
 		8996B626296FB3C100031905 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8996B628296FB3C100031905 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8996B632296FDE7300031905 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		8996B635296FEF2500031905 /* CatagoryCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CatagoryCVCell.swift; path = Catagory/CatagoryCVCell.swift; sourceTree = "<group>"; };
-		8996B636296FEF2500031905 /* CatagoryCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CatagoryCVCell.xib; path = Catagory/CatagoryCVCell.xib; sourceTree = "<group>"; };
+		8996B635296FEF2500031905 /* CatagoryCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatagoryCVCell.swift; sourceTree = "<group>"; };
+		8996B636296FEF2500031905 /* CatagoryCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatagoryCVCell.xib; sourceTree = "<group>"; };
+		89C1360B29754EEC00AC4EA9 /* NewsWebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsWebVC.swift; sourceTree = "<group>"; };
 		89CD57E429714FD400BD1B86 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoreDataHelper.swift; path = CoreData/CoreDataHelper.swift; sourceTree = "<group>"; };
 		89CD57F02971576B00BD1B86 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		89CD57F22971593100BD1B86 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
@@ -59,17 +77,85 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42C5983EA7EDF61B2E1CFAD4 /* Pods_IngridNews.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3584710429745C8600B4750A /* Bookmark */ = {
+			isa = PBXGroup;
+			children = (
+				3584710229745C7B00B4750A /* BookmarkedNewsVC.swift */,
+				358471052974605900B4750A /* BookmarkedNewsTVCell.swift */,
+				358471062974605900B4750A /* BookmarkedNewsTVCell.xib */,
+			);
+			path = Bookmark;
+			sourceTree = "<group>";
+		};
+		35BA0758297274E300E878EC /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				35BA07592972752F00E878EC /* Shared.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		35BA075C297279DA00E878EC /* Catagory Info */ = {
+			isa = PBXGroup;
+			children = (
+				35BA075D29727A0C00E878EC /* CatagoryInfo.swift */,
+				8996B635296FEF2500031905 /* CatagoryCVCell.swift */,
+				8996B636296FEF2500031905 /* CatagoryCVCell.xib */,
+			);
+			path = "Catagory Info";
+			sourceTree = "<group>";
+		};
+		35BA075F297285D200E878EC /* News */ = {
+			isa = PBXGroup;
+			children = (
+				89CD57F22971593100BD1B86 /* News.swift */,
+				89CD57F429715FCF00BD1B86 /* NewsList.swift */,
+				89DCABE82970188700DA12BC /* NewsCVCell.swift */,
+				89DCABE92970188700DA12BC /* NewsCVCell.xib */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		35BA07662973081900E878EC /* NewsDetails */ = {
+			isa = PBXGroup;
+			children = (
+				89C1360B29754EEC00AC4EA9 /* NewsWebVC.swift */,
+				35BA0760297306EF00E878EC /* NewsDetailsVC.swift */,
+			);
+			path = NewsDetails;
+			sourceTree = "<group>";
+		};
+		44F3752542060CE2FFF8DEBD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7E28F64D69D9BCED4A5BAAE3 /* Pods-IngridNews.debug.xcconfig */,
+				16333CCE18A185DD4F7B499A /* Pods-IngridNews.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7CC817C9E368F11040675C8B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				74CF6DA7095CA11D988D5C58 /* Pods_IngridNews.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8996B60B296FB3BC00031905 = {
 			isa = PBXGroup;
 			children = (
 				8996B616296FB3BC00031905 /* IngridNews */,
 				8996B615296FB3BC00031905 /* Products */,
+				44F3752542060CE2FFF8DEBD /* Pods */,
+				7CC817C9E368F11040675C8B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,22 +170,21 @@
 		8996B616296FB3BC00031905 /* IngridNews */ = {
 			isa = PBXGroup;
 			children = (
-				89CD57F22971593100BD1B86 /* News.swift */,
-				89CD57F429715FCF00BD1B86 /* NewsList.swift */,
+				35BA0758297274E300E878EC /* Shared */,
 				89CD57E329714F5000BD1B86 /* Storage */,
 				8996B632296FDE7300031905 /* Constants.swift */,
+				3584710429745C8600B4750A /* Bookmark */,
 				8996B617296FB3BC00031905 /* AppDelegate.swift */,
 				8996B619296FB3BC00031905 /* SceneDelegate.swift */,
 				8996B61B296FB3BC00031905 /* ViewController.swift */,
 				8996B61D296FB3BC00031905 /* Main.storyboard */,
+				35BA07662973081900E878EC /* NewsDetails */,
 				8996B623296FB3C100031905 /* Assets.xcassets */,
 				8996B625296FB3C100031905 /* LaunchScreen.storyboard */,
 				8996B628296FB3C100031905 /* Info.plist */,
 				8996B620296FB3BC00031905 /* IngridNews.xcdatamodeld */,
-				8996B635296FEF2500031905 /* CatagoryCVCell.swift */,
-				8996B636296FEF2500031905 /* CatagoryCVCell.xib */,
-				89DCABE82970188700DA12BC /* NewsCVCell.swift */,
-				89DCABE92970188700DA12BC /* NewsCVCell.xib */,
+				35BA075C297279DA00E878EC /* Catagory Info */,
+				35BA075F297285D200E878EC /* News */,
 				89CD57F02971576B00BD1B86 /* API.swift */,
 			);
 			path = IngridNews;
@@ -132,9 +217,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8996B62B296FB3C200031905 /* Build configuration list for PBXNativeTarget "IngridNews" */;
 			buildPhases = (
+				A393A109F91BF114B5DC8338 /* [CP] Check Pods Manifest.lock */,
 				8996B610296FB3BC00031905 /* Sources */,
 				8996B611296FB3BC00031905 /* Frameworks */,
 				8996B612296FB3BC00031905 /* Resources */,
+				987B96225B73A788EA754467 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -184,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8996B627296FB3C100031905 /* LaunchScreen.storyboard in Resources */,
+				358471082974605900B4750A /* BookmarkedNewsTVCell.xib in Resources */,
 				8996B624296FB3C100031905 /* Assets.xcassets in Resources */,
 				8996B638296FEF2500031905 /* CatagoryCVCell.xib in Resources */,
 				8996B61F296FB3BC00031905 /* Main.storyboard in Resources */,
@@ -193,6 +281,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		987B96225B73A788EA754467 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IngridNews/Pods-IngridNews-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IngridNews/Pods-IngridNews-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IngridNews/Pods-IngridNews-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A393A109F91BF114B5DC8338 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IngridNews-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8996B610296FB3BC00031905 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -200,19 +330,25 @@
 			files = (
 				8996B637296FEF2500031905 /* CatagoryCVCell.swift in Sources */,
 				8996B61C296FB3BC00031905 /* ViewController.swift in Sources */,
+				35BA0761297306EF00E878EC /* NewsDetailsVC.swift in Sources */,
 				8996B622296FB3BC00031905 /* IngridNews.xcdatamodeld in Sources */,
+				35BA075E29727A0C00E878EC /* CatagoryInfo.swift in Sources */,
 				89CD57F32971593100BD1B86 /* News.swift in Sources */,
 				89DCABEA2970188700DA12BC /* NewsCVCell.swift in Sources */,
 				89CD57F529715FCF00BD1B86 /* NewsList.swift in Sources */,
 				89CD57FB2971616500BD1B86 /* NewsModel+CoreDataProperties.swift in Sources */,
 				8996B618296FB3BC00031905 /* AppDelegate.swift in Sources */,
 				89CD57FD2971616500BD1B86 /* SavedNewsModel+CoreDataProperties.swift in Sources */,
+				3584710329745C7B00B4750A /* BookmarkedNewsVC.swift in Sources */,
+				89C1360C29754EED00AC4EA9 /* NewsWebVC.swift in Sources */,
 				89CD57E529714FD400BD1B86 /* CoreDataHelper.swift in Sources */,
 				89CD57F12971576B00BD1B86 /* API.swift in Sources */,
 				8996B61A296FB3BC00031905 /* SceneDelegate.swift in Sources */,
 				89CD57FA2971616500BD1B86 /* NewsModel+CoreDataClass.swift in Sources */,
 				89CD57FC2971616500BD1B86 /* SavedNewsModel+CoreDataClass.swift in Sources */,
+				35BA075A2972752F00E878EC /* Shared.swift in Sources */,
 				8996B633296FDE7300031905 /* Constants.swift in Sources */,
+				358471072974605900B4750A /* BookmarkedNewsTVCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +490,7 @@
 		};
 		8996B62C296FB3C200031905 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E28F64D69D9BCED4A5BAAE3 /* Pods-IngridNews.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -381,6 +518,7 @@
 		};
 		8996B62D296FB3C200031905 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16333CCE18A185DD4F7B499A /* Pods-IngridNews.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

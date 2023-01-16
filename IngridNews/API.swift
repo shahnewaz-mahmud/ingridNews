@@ -8,5 +8,7 @@
 import Foundation
 
 class API{
-    static let apiDomain = "https://newsapi.org/v2/top-headlines?country=us&pageSize=10&apiKey=814ef7e4f7c049458f9d2e26cfec78a0"
+    static let apiDomain2 = "https://newsapi.org/v2/top-headlines?country=us&pageSize=10&apiKey=814ef7e4f7c049458f9d2e26cfec78a0"
+    static let apiDomain = "https://newsapi.org/v2/top-headlines?country=us&pageSize=10"
+    static let apiKey = "814ef7e4f7c049458f9d2e26cfec78a0"
 }
