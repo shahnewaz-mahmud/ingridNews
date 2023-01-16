@@ -34,9 +34,19 @@ class BookmarkedNewsVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(refreshBookmarkList), name: Constants.refreshBookmarkListNotificationName, object: nil)
         
         
+   
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+        self.tabBarController?.tabBar.barTintColor = .clear
+        self.tabBarController?.tabBar.backgroundImage = UIImage()
 
-        
-
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     @objc func refreshBookmarkList() {
@@ -86,6 +96,7 @@ extension BookmarkedNewsVC: UITableViewDataSource {
         let time = Shared().getReadableDataTime(data: SavedNewsModel.savedNewsList[indexPath.row].publishedAt ?? "")
         bookmarkedNewsCell.newsTime.text = time.0
         bookmarkedNewsCell.newsImage.sd_setImage(with: URL(string: SavedNewsModel.savedNewsList[indexPath.row].urlToImage ?? ""), placeholderImage: UIImage(named: "placeHolder"))
+        bookmarkedNewsCell.selectionStyle = .none
 
         return bookmarkedNewsCell
     }
@@ -138,24 +149,10 @@ extension BookmarkedNewsVC: UITableViewDelegate {
         }
     }
     
-    /*
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-            let offsetY = scrollView.contentOffset.y
-        if offsetY > 1 {
-                navigationController?.setNavigationBarHidden(true, animated: false)
-                tabBarController?.tabBar.barTintColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.0)
-            
-            } else {
-                navigationController?.setNavigationBarHidden(false, animated: false)
 
-            }
-        }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-            navigationController?.setNavigationBarHidden(false, animated: false)
-        }
+        
+  
      
-     */
     
 }

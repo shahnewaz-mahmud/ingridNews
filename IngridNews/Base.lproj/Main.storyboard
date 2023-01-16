@@ -163,6 +163,9 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="checklist" catalog="system" title=""/>
+                                                <connections>
+                                                    <action selector="filterBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8tS-LS-x67"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PBv-uz-dKW" userLabel="Search View">
                                                 <rect key="frame" x="30" y="20" width="335.66666666666669" height="45"/>
@@ -197,16 +200,24 @@
                                                     <constraint firstAttribute="trailing" secondItem="vwf-1Y-3mX" secondAttribute="trailing" id="yzu-E3-NKm"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HBF-yL-CmE">
+                                                <rect key="frame" x="46" y="70" width="336" height="47"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.031372549019607843" green="0.14901960784313725" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="tintColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstItem="HBF-yL-CmE" firstAttribute="centerX" secondItem="vUd-3B-Ogn" secondAttribute="centerX" id="9D3-S6-WhA"/>
                                             <constraint firstItem="PBv-uz-dKW" firstAttribute="width" secondItem="vUd-3B-Ogn" secondAttribute="width" multiplier="0.784" id="A5o-kg-6dX"/>
                                             <constraint firstItem="PBv-uz-dKW" firstAttribute="top" secondItem="vUd-3B-Ogn" secondAttribute="top" constant="20" id="ADQ-Gx-5A4"/>
                                             <constraint firstItem="yjI-hi-GgA" firstAttribute="leading" secondItem="PBv-uz-dKW" secondAttribute="trailing" constant="8" id="Nsg-te-EVg"/>
+                                            <constraint firstItem="HBF-yL-CmE" firstAttribute="top" secondItem="PBv-uz-dKW" secondAttribute="bottom" constant="5" id="bZI-ie-IGB"/>
                                             <constraint firstItem="yjI-hi-GgA" firstAttribute="centerY" secondItem="PBv-uz-dKW" secondAttribute="centerY" id="fGM-L2-uN4"/>
                                             <constraint firstItem="PBv-uz-dKW" firstAttribute="leading" secondItem="vUd-3B-Ogn" secondAttribute="leading" constant="30" id="gbN-zS-e5w"/>
                                             <constraint firstAttribute="trailing" secondItem="yjI-hi-GgA" secondAttribute="trailing" constant="15" id="qxS-g1-Fwu"/>
+                                            <constraint firstItem="HBF-yL-CmE" firstAttribute="height" secondItem="vUd-3B-Ogn" secondAttribute="height" multiplier="0.523529" id="sRr-EM-Uog"/>
+                                            <constraint firstItem="HBF-yL-CmE" firstAttribute="width" secondItem="vUd-3B-Ogn" secondAttribute="width" multiplier="0.785047" id="ztr-A4-gkD"/>
+                                            <constraint firstAttribute="height" constant="90" id="zzf-36-3Zb"/>
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xH4-mR-R5D">
@@ -279,7 +290,6 @@
                                     <constraint firstAttribute="bottom" secondItem="MGG-U8-NUQ" secondAttribute="bottom" constant="26" id="NDC-wH-MeY"/>
                                     <constraint firstAttribute="bottom" secondItem="MGG-U8-NUQ" secondAttribute="bottom" constant="26" id="Opt-Ie-p7L"/>
                                     <constraint firstItem="x0a-uZ-Dvx" firstAttribute="centerX" secondItem="ahV-GY-IDu" secondAttribute="centerX" id="QOh-je-g5z"/>
-                                    <constraint firstItem="vUd-3B-Ogn" firstAttribute="height" secondItem="ahV-GY-IDu" secondAttribute="height" multiplier="0.120212" constant="-16.026983999999999" id="X2p-ZQ-oe4"/>
                                     <constraint firstItem="vUd-3B-Ogn" firstAttribute="top" secondItem="ahV-GY-IDu" secondAttribute="top" id="ZCF-PJ-0cQ"/>
                                     <constraint firstItem="MGG-U8-NUQ" firstAttribute="top" secondItem="x0a-uZ-Dvx" secondAttribute="bottom" constant="-5" id="bEU-pk-Iph"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ogM-Ad-Qz5" secondAttribute="trailing" constant="20" symbolic="YES" id="dBY-pC-g78"/>
@@ -307,7 +317,9 @@
                     <navigationItem key="navigationItem" id="10l-da-kzB"/>
                     <connections>
                         <outlet property="catagoryCollectionView" destination="xH4-mR-R5D" id="q7n-E3-OLq"/>
+                        <outlet property="filterListView" destination="HBF-yL-CmE" id="krV-hN-Y8G"/>
                         <outlet property="headerView" destination="vUd-3B-Ogn" id="30a-sr-b3a"/>
+                        <outlet property="headerViewHeightConstant" destination="zzf-36-3Zb" id="qtL-yk-oei"/>
                         <outlet property="newsCollectionView" destination="x0a-uZ-Dvx" id="RUf-vG-TZ2"/>
                         <outlet property="searchField" destination="vwf-1Y-3mX" id="10N-0O-CiA"/>
                         <outlet property="tabBarBackground" destination="MGG-U8-NUQ" id="ENs-vz-ZlI"/>
@@ -591,7 +603,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kNM-ux-Qif"/>
+        <segue reference="CYo-sl-4JO"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark.fill" catalog="system" width="112" height="128"/>

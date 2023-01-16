@@ -15,12 +15,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var newsCollectionView: UICollectionView!
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var tabBarBackground: UIView!
+    @IBOutlet weak var headerViewHeightConstant: NSLayoutConstraint!
+    @IBOutlet weak var filterListView: UIView!
     
     var selectedIndex = 0
     var selectedCatagoryIndex = 0
     var selectedCatagory = "All"
     var deSelectedCatagoryIndex = 1
     let refreshControl = UIRefreshControl()
+    var isFilterexpanded = false
     
     
     
@@ -51,6 +54,8 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        filterListView.isHidden = true
     
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(refreshNewsList), name: Constants.refreshNewsListNotificationName, object: nil)
@@ -86,6 +91,32 @@ class ViewController: UIViewController {
         collectionViewCellLayout.scrollDirection = .vertical
         newsCollectionView.collectionViewLayout = collectionViewCellLayout
     }
+    
+    @IBAction func filterBtnAction(_ sender: Any) {
+        
+        if isFilterexpanded == false{
+            isFilterexpanded = true
+            UIView.animate(withDuration: 1, delay: 0, animations: { [weak self] in
+                self?.headerViewHeightConstant.constant = 170
+                self?.view.layoutIfNeeded()
+                self?.filterListView.isHidden = false
+            })
+        } else {
+            isFilterexpanded = false
+            self.filterListView.isHidden = true
+            UIView.animate(withDuration: 1, delay: 0, animations: { [weak self] in
+                self?.headerViewHeightConstant.constant = 90
+                self?.view.layoutIfNeeded()
+                
+            })
+        }
+        
+        
+    }
+    
+    
+    
+    
     
     @objc func refreshNewsList(){
         DispatchQueue.main.async {
