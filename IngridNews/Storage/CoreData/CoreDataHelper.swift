@@ -185,4 +185,15 @@ class CoreDataHelper{
         getAllNews(catagory: catagory)
 
     }
+    
+    func clearAllData(){
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "NewsModel")
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        do {
+            try context.execute(batchDeleteRequest)
+        } catch let error as NSError {
+            print("Error while deleting all data from Core Data: \(error)")
+        }
+    }
 }

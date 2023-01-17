@@ -18,5 +18,7 @@ class Constants {
     
     static let segueToNewsDetailsFromBookmarkId = "segueToDetailsFromBookmark"
     static let segueToNewsWebId = "segueToNewsWeb"
+    
+    static let userDefaultsUser = "User"
 }
  

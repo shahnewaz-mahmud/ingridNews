@@ -145,6 +145,7 @@ extension BookmarkedNewsVC: UITableViewDelegate {
                 destination.siteLink = SavedNewsModel.savedNewsList[selectedIndex].url ?? ""
                 destination.catagoryTxt = SavedNewsModel.savedNewsList[selectedIndex].catagoryName ?? ""
                 destination.isBookMarked = true
+                destination.webURL = SavedNewsModel.savedNewsList[selectedIndex].url ?? ""
             }
         }
     }

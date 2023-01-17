@@ -21,12 +21,7 @@ class Shared{
 
         let calendar = Calendar.current
         let dateComponents = calendar.dateComponents([.year, .month, .day], from: date)
-        let timeComponents = calendar.dateComponents([.hour, .minute, .second], from: date)
-
-        let hour = timeComponents.hour!
-        let minute = timeComponents.minute!
-        let second = timeComponents.second!
-
+        
         dateFormatter.dateFormat = "h:mm:ss a"
         dateFormatter.amSymbol = "AM"
         dateFormatter.pmSymbol = "PM"
@@ -37,5 +32,12 @@ class Shared{
         return (time,readableDate)
         
         
+    }
+}
+
+
+extension Date {
+    static func - (lhs: Date, rhs: Date) -> TimeInterval {
+        return lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate
     }
 }

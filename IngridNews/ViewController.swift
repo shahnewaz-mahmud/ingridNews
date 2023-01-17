@@ -8,6 +8,7 @@
 import UIKit
 import SDWebImage
 
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var headerView: UIView!
@@ -50,13 +51,16 @@ class ViewController: UIViewController {
         
         newsCollectionView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(handlePullRefresh(_:)), for: .valueChanged)
+        
+        autoSyncNews()
       
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
+        autoSyncNews()
         filterListView.isHidden = true
-    
+        
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(refreshNewsList), name: Constants.refreshNewsListNotificationName, object: nil)
     }
@@ -96,7 +100,7 @@ class ViewController: UIViewController {
         
         if isFilterexpanded == false{
             isFilterexpanded = true
-            UIView.animate(withDuration: 1, delay: 0, animations: { [weak self] in
+            UIView.animate(withDuration: 0.5, delay: 0, animations: { [weak self] in
                 self?.headerViewHeightConstant.constant = 170
                 self?.view.layoutIfNeeded()
                 self?.filterListView.isHidden = false
@@ -110,19 +114,15 @@ class ViewController: UIViewController {
                 
             })
         }
-        
-        
     }
-    
-    
-    
-    
+
     
     @objc func refreshNewsList(){
         DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.5, animations: {
-                self.newsCollectionView.reloadData()
-            })
+            self.newsCollectionView.performBatchUpdates({
+                self.newsCollectionView.reloadSections([0])
+            }, completion: nil)
+            
             
         }
     }
@@ -163,6 +163,34 @@ class ViewController: UIViewController {
             }
 
         }.resume()
+    }
+    
+    func autoSyncNews(){
+        let currentTime = Date()
+        
+        let userInfo = UserDefaultsHelper.shared.getSavedData(key: Constants.userDefaultsUser)
+        
+        guard var userInfo = userInfo else {
+            let newUser = User(theme: "A", isDarkmode: false, lastSync: currentTime)
+            UserDefaultsHelper.shared.saveData(userInfo: newUser, key: Constants.userDefaultsUser)
+            return
+            
+        }
+
+        let timeInterval = (currentTime - userInfo.lastSync)/60
+            print("mins", timeInterval)
+            
+            if timeInterval > 30 {
+                
+                CoreDataHelper.shared.clearAllData()
+                for category in Catagory.catagoryList
+                {
+                    syncNews(catagory: category.name!)
+                }
+                
+                userInfo.lastSync = currentTime
+                UserDefaultsHelper.shared.saveData(userInfo: userInfo, key: Constants.userDefaultsUser)
+            }
     }
     
     @objc func searchNews()
