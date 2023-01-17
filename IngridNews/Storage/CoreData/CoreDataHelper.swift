@@ -63,11 +63,12 @@ class CoreDataHelper{
     }
     
     
-    func getAllNews(catagory: String) {
+    func getAllNews(catagory: String, lastIndex: Int) {
         let fetchRequest = NSFetchRequest<NewsModel>(entityName: "NewsModel")
         let format = "catagoryName = %@"
         let predicate = NSPredicate(format: format,catagory)
         fetchRequest.predicate = predicate
+        fetchRequest.fetchLimit = lastIndex + 10
         
         do {
             NewsModel.newsList = try context.fetch(fetchRequest)
@@ -182,7 +183,7 @@ class CoreDataHelper{
             print("Delete Error: ", error)
         }
         
-        getAllNews(catagory: catagory)
+        getAllNews(catagory: catagory, lastIndex: 0)
 
     }
     

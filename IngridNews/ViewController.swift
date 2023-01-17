@@ -19,12 +19,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var headerViewHeightConstant: NSLayoutConstraint!
     @IBOutlet weak var filterListView: UIView!
     
+    
+    @IBOutlet weak var titleCheckBox: UIButton!
+    @IBOutlet weak var authorCheckBox: UIButton!
+    @IBOutlet weak var descriptionCheckBox: UIButton!
+    @IBOutlet weak var contentCheckBox: UIButton!
+    var searchFilterList = [String]()
+    var filterTitle = false
+    var filterAuthor = false
+    var filterDescription = false
+    var filterContent = false
+    
     var selectedIndex = 0
     var selectedCatagoryIndex = 0
     var selectedCatagory = "All"
     var deSelectedCatagoryIndex = 1
     let refreshControl = UIRefreshControl()
     var isFilterexpanded = false
+    
+    var currentPage = 1
+    var isLoading = false
+    var isSearch = false
     
     
     
@@ -64,7 +79,57 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(refreshNewsList), name: Constants.refreshNewsListNotificationName, object: nil)
     }
-
+    
+    
+    
+    @IBAction func titleCheckBoxAction(_ sender: Any) {
+        
+        if !filterTitle {
+            titleCheckBox.setImage(UIImage(systemName: "checkmark.rectangle.fill"), for: .normal)
+            filterTitle = true
+        } else {
+            titleCheckBox.setImage(UIImage(systemName: "rectangle"), for: .normal)
+            filterTitle = false
+        }
+        
+    }
+    
+    
+    @IBAction func authorCheckBoxAction(_ sender: Any) {
+        if !filterAuthor {
+            authorCheckBox.setImage(UIImage(systemName: "checkmark.rectangle.fill"), for: .normal)
+            filterAuthor = true
+        } else {
+            authorCheckBox.setImage(UIImage(systemName: "rectangle"), for: .normal)
+            filterAuthor = false
+        }
+        
+    }
+    
+    @IBAction func descriptionCheckBoxAction(_ sender: Any) {
+        if !filterDescription {
+            descriptionCheckBox.setImage(UIImage(systemName: "checkmark.rectangle.fill"), for: .normal)
+            filterDescription = true
+        } else {
+            descriptionCheckBox.setImage(UIImage(systemName: "rectangle"), for: .normal)
+            filterDescription = false
+        }
+        
+    }
+    
+    @IBAction func contentCheckBoxAction(_ sender: Any) {
+        
+        if !filterContent {
+            contentCheckBox.setImage(UIImage(systemName: "checkmark.rectangle.fill"), for: .normal)
+            filterContent = true
+        } else {
+            contentCheckBox.setImage(UIImage(systemName: "rectangle"), for: .normal)
+            filterContent = false
+        }
+        
+    }
+    
+    
     func configureHeaderSection(){
         
         headerView.clipsToBounds = true
@@ -107,10 +172,10 @@ class ViewController: UIViewController {
             })
         } else {
             isFilterexpanded = false
-            self.filterListView.isHidden = true
             UIView.animate(withDuration: 1, delay: 0, animations: { [weak self] in
                 self?.headerViewHeightConstant.constant = 90
                 self?.view.layoutIfNeeded()
+                self?.filterListView.isHidden = true
                 
             })
         }
@@ -135,7 +200,7 @@ class ViewController: UIViewController {
     }
     
     func fetchNews(catagory: String) {
-        CoreDataHelper.shared.getAllNews(catagory: catagory)
+        CoreDataHelper.shared.getAllNews(catagory: catagory, lastIndex: 0)
         self.refreshNewsList()
         if NewsModel.newsList.count == 0 {
             syncNews(catagory: catagory)
@@ -145,6 +210,8 @@ class ViewController: UIViewController {
     
     func syncNews(catagory: String){
         guard let url = URL(string: API.apiDomain+"&category=\(catagory != "All" ? catagory : "" )&apiKey=\(API.apiKey)") else { return }
+        print(API.apiDomain+"&category=\(catagory != "All" ? catagory : "" )&apiKey=\(API.apiKey)")
+        
         URLSession.shared.dataTask(with: url) { data, response, error in
             
             if let error = error {
@@ -158,7 +225,7 @@ class ViewController: UIViewController {
                     }
                 }
                 
-                CoreDataHelper.shared.getAllNews(catagory: catagory)
+                CoreDataHelper.shared.getAllNews(catagory: catagory, lastIndex: 0)
                 self.refreshNewsList()
             }
 
@@ -180,7 +247,7 @@ class ViewController: UIViewController {
         let timeInterval = (currentTime - userInfo.lastSync)/60
             print("mins", timeInterval)
             
-            if timeInterval > 30 {
+            if timeInterval > 180 {
                 
                 CoreDataHelper.shared.clearAllData()
                 for category in Catagory.catagoryList
@@ -197,16 +264,16 @@ class ViewController: UIViewController {
     {
         if let searchText = searchField.text {
             if searchText == ""{
-                CoreDataHelper.shared.getAllNews(catagory: selectedCatagory)
+                isSearch = false
+                CoreDataHelper.shared.getAllNews(catagory: selectedCatagory, lastIndex: 0)
                 refreshNewsList()
             } else {
+                isSearch = true
                 CoreDataHelper.shared.searchNews(catagory: selectedCatagory, searchText: searchText)
                 refreshNewsList()
             }
             
         }
-        
-       
     }
 
 
@@ -220,17 +287,18 @@ extension ViewController : UICollectionViewDataSource {
                     return Catagory.catagoryList.count
                 case 1:
                     print("Total News",NewsModel.newsList.count)
-                    return NewsModel.newsList.count
+            return NewsModel.newsList.count
                 default:
                     return 0
             }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+    
         switch collectionView.tag {
             case 0:
                 let catagoryCollectionViewCell = catagoryCollectionView.dequeueReusableCell(withReuseIdentifier: Constants.CatagoryCVCellId, for: indexPath) as! CatagoryCVCell
+
             catagoryCollectionViewCell.catagoryTitle.text = Catagory.catagoryList[indexPath.row].name
             catagoryCollectionViewCell.catagoryImage.image = UIImage(systemName: Catagory.catagoryList[indexPath.row].img!)
             
@@ -248,6 +316,8 @@ extension ViewController : UICollectionViewDataSource {
                 
             case 1:
                 let newsCollectionViewCell = newsCollectionView.dequeueReusableCell(withReuseIdentifier: Constants.newsCVCellId, for: indexPath) as! NewsCVCell
+            
+            
             newsCollectionViewCell.addBookmarkBtn.addTarget(newsCollectionViewCell, action: #selector(newsCollectionViewCell.addBookmarkBtnAction(_:)), for: .touchUpInside)
 
             newsCollectionViewCell.newsTitle.text = NewsModel.newsList[indexPath.row].title
@@ -315,7 +385,6 @@ extension ViewController: UICollectionViewDelegate {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == Constants.segueToNewsDetailsId{
             if let destination = segue.destination as? NewsDetailsVC {
                 destination.newsTitleTxt = NewsModel.newsList[selectedIndex].title ?? ""
@@ -333,6 +402,26 @@ extension ViewController: UICollectionViewDelegate {
             }
         }
     }
+    
+
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if (collectionView == newsCollectionView && isSearch == false){
+            if indexPath.row == NewsModel.newsList.count - 1 {
+                if !isLoading {
+                    isLoading = true
+                    currentPage += 1
+                    CoreDataHelper.shared.getAllNews(catagory: selectedCatagory, lastIndex: indexPath.row)
+                    self.isLoading = false
+                    print("Paging")
+                    self.newsCollectionView.reloadData()
+
+                }
+            }
+        }
+        
+    }
+    
     
 }
 

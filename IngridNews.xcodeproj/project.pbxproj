@@ -153,6 +153,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		893E20F129766C6600CBCAB6 /* Pagination */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pagination;
+			sourceTree = "<group>";
+		};
 		8996B60B296FB3BC00031905 = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +181,7 @@
 		8996B616296FB3BC00031905 /* IngridNews */ = {
 			isa = PBXGroup;
 			children = (
+				893E20F129766C6600CBCAB6 /* Pagination */,
 				35BA0758297274E300E878EC /* Shared */,
 				89CD57E329714F5000BD1B86 /* Storage */,
 				8996B632296FDE7300031905 /* Constants.swift */,
