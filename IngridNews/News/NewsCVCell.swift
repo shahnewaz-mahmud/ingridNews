@@ -24,7 +24,6 @@ class NewsCVCell: UICollectionViewCell {
         newsBackground.dropShadow()
         newsImage.layer.cornerRadius = 15
         
-        
         // Initialization code
     }
     
@@ -41,6 +40,7 @@ class NewsCVCell: UICollectionViewCell {
         }
     }
     
+ 
 
 }
 

@@ -26,6 +26,7 @@
 		8996B633296FDE7300031905 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8996B632296FDE7300031905 /* Constants.swift */; };
 		8996B637296FEF2500031905 /* CatagoryCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8996B635296FEF2500031905 /* CatagoryCVCell.swift */; };
 		8996B638296FEF2500031905 /* CatagoryCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8996B636296FEF2500031905 /* CatagoryCVCell.xib */; };
+		8996DDDE2977A3D000302AF7 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8996DDDD2977A3D000302AF7 /* SettingsVC.swift */; };
 		89C1360C29754EED00AC4EA9 /* NewsWebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1360B29754EEC00AC4EA9 /* NewsWebVC.swift */; };
 		89CD57E529714FD400BD1B86 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CD57E429714FD400BD1B86 /* CoreDataHelper.swift */; };
 		89CD57F12971576B00BD1B86 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CD57F02971576B00BD1B86 /* API.swift */; };
@@ -63,6 +64,7 @@
 		8996B632296FDE7300031905 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8996B635296FEF2500031905 /* CatagoryCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatagoryCVCell.swift; sourceTree = "<group>"; };
 		8996B636296FEF2500031905 /* CatagoryCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatagoryCVCell.xib; sourceTree = "<group>"; };
+		8996DDDD2977A3D000302AF7 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		89C1360B29754EEC00AC4EA9 /* NewsWebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsWebVC.swift; sourceTree = "<group>"; };
 		89CD57E429714FD400BD1B86 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoreDataHelper.swift; path = CoreData/CoreDataHelper.swift; sourceTree = "<group>"; };
 		89CD57F02971576B00BD1B86 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 		8996B616296FB3BC00031905 /* IngridNews */ = {
 			isa = PBXGroup;
 			children = (
+				8996DDDD2977A3D000302AF7 /* SettingsVC.swift */,
 				893E20F129766C6600CBCAB6 /* Pagination */,
 				35BA0758297274E300E878EC /* Shared */,
 				89CD57E329714F5000BD1B86 /* Storage */,
@@ -347,6 +350,7 @@
 				35BA0761297306EF00E878EC /* NewsDetailsVC.swift in Sources */,
 				8996B622296FB3BC00031905 /* IngridNews.xcdatamodeld in Sources */,
 				35BA075E29727A0C00E878EC /* CatagoryInfo.swift in Sources */,
+				8996DDDE2977A3D000302AF7 /* SettingsVC.swift in Sources */,
 				89CD57F32971593100BD1B86 /* News.swift in Sources */,
 				89DCABEA2970188700DA12BC /* NewsCVCell.swift in Sources */,
 				89CD57F529715FCF00BD1B86 /* NewsList.swift in Sources */,

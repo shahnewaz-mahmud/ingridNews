@@ -71,6 +71,7 @@ class NewsDetailsVC: UIViewController {
         if segue.identifier == Constants.segueToNewsWebId {
             if let destination = segue.destination as? NewsWebVC {
                 destination.webURL = webURL
+                print(webURL)
             }
         }
     }

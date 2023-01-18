@@ -10,15 +10,12 @@ import UIKit
 class BookmarkedNewsTVCell: UITableViewCell {
 
     @IBOutlet weak var cellBackgroundView: UIView!
-    
     @IBOutlet weak var newsImage: UIImageView!
-    
     @IBOutlet weak var newsDescription: UILabel!
     @IBOutlet weak var newsTitle: UILabel!
-    
     @IBOutlet weak var newsTime: UILabel!
-    
     @IBOutlet weak var newsAuthor: UILabel!
+    @IBOutlet weak var contentBackground: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,5 +31,6 @@ class BookmarkedNewsTVCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
     
 }

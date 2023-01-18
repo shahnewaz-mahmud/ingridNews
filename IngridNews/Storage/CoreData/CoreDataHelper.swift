@@ -119,10 +119,31 @@ class CoreDataHelper{
     }
     
     
-    func searchNews(catagory: String, searchText: String) {
+    func searchNews(catagory: String, searchText: String, filterList: [String]) {
+        
         let fetchRequest = NSFetchRequest<NewsModel>(entityName: "NewsModel")
-        let format = "catagoryName = %@ && title CONTAINS[c] %@"
-        let predicate = NSPredicate(format: format,catagory,searchText)
+        var format = "catagoryName = %@ && "
+        
+        if filterList.count == 0 {
+            format += "title CONTAINS[c] '\(searchText)'"
+            
+        } else {
+            for i in 0...filterList.count - 1 {
+                if (i == filterList.count - 1){
+                    format += "\(filterList[i]) CONTAINS[c] '\(searchText)'"
+                } else {
+                    format += "\(filterList[i]) CONTAINS[c] '\(searchText)' || "
+                }
+                
+            }
+        }
+        
+        
+        
+        print(format)
+        
+        
+        let predicate = NSPredicate(format: format,catagory)
         fetchRequest.predicate = predicate
         
         do {

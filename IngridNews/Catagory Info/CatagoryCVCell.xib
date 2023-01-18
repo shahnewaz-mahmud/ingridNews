@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -44,7 +45,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="Main Color"/>
                         <constraints>
                             <constraint firstItem="ylh-mR-q9g" firstAttribute="leading" secondItem="E9y-MH-8dR" secondAttribute="leading" id="0GE-8n-8dn"/>
                             <constraint firstItem="bIr-7t-Rtr" firstAttribute="centerX" secondItem="E9y-MH-8dR" secondAttribute="centerX" id="1xR-uu-pKg"/>
@@ -75,6 +76,9 @@
     </objects>
     <resources>
         <image name="books.vertical" catalog="system" width="128" height="107"/>
+        <namedColor name="Main Color">
+            <color red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

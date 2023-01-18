@@ -36,9 +36,12 @@ class ViewController: UIViewController {
     var deSelectedCatagoryIndex = 1
     let refreshControl = UIRefreshControl()
     var isFilterexpanded = false
+    var filterList = [String]()
     
     var currentPage = 1
     var isLoading = false
+    
+    
     var isSearch = false
     
     
@@ -52,6 +55,7 @@ class ViewController: UIViewController {
         configureHeaderSection()
         configureCatagoryCell()
         configureNewsCell()
+        configureSearchFilter()
        
         
         catagoryCollectionView.dataSource = self
@@ -75,11 +79,16 @@ class ViewController: UIViewController {
         
         autoSyncNews()
         filterListView.isHidden = true
+        headerViewHeightConstant.constant = 90
         
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(refreshNewsList), name: Constants.refreshNewsListNotificationName, object: nil)
+        self.navigationController?.navigationBar.isHidden = true
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+    }
     
     
     @IBAction func titleCheckBoxAction(_ sender: Any) {
@@ -87,9 +96,11 @@ class ViewController: UIViewController {
         if !filterTitle {
             titleCheckBox.setImage(UIImage(systemName: "checkmark.rectangle.fill"), for: .normal)
             filterTitle = true
+            filterList.append("title")
         } else {
             titleCheckBox.setImage(UIImage(systemName: "rectangle"), for: .normal)
             filterTitle = false
+            filterList = filterList.filter { $0 != "title" }
         }
         
     }
@@ -99,9 +110,11 @@ class ViewController: UIViewController {
         if !filterAuthor {
             authorCheckBox.setImage(UIImage(systemName: "checkmark.rectangle.fill"), for: .normal)
             filterAuthor = true
+            filterList.append("author")
         } else {
             authorCheckBox.setImage(UIImage(systemName: "rectangle"), for: .normal)
             filterAuthor = false
+            filterList = filterList.filter { $0 != "author" }
         }
         
     }
@@ -110,9 +123,11 @@ class ViewController: UIViewController {
         if !filterDescription {
             descriptionCheckBox.setImage(UIImage(systemName: "checkmark.rectangle.fill"), for: .normal)
             filterDescription = true
+            filterList.append("newsDescription")
         } else {
             descriptionCheckBox.setImage(UIImage(systemName: "rectangle"), for: .normal)
             filterDescription = false
+            filterList = filterList.filter { $0 != "newsDescription" }
         }
         
     }
@@ -122,9 +137,11 @@ class ViewController: UIViewController {
         if !filterContent {
             contentCheckBox.setImage(UIImage(systemName: "checkmark.rectangle.fill"), for: .normal)
             filterContent = true
+            filterList.append("content")
         } else {
             contentCheckBox.setImage(UIImage(systemName: "rectangle"), for: .normal)
             filterContent = false
+            filterList = filterList.filter { $0 != "content" }
         }
         
     }
@@ -161,6 +178,15 @@ class ViewController: UIViewController {
         newsCollectionView.collectionViewLayout = collectionViewCellLayout
     }
     
+    func configureSearchFilter() {
+        filterTitle = true
+        filterAuthor = true
+        filterDescription = true
+        filterContent = true
+        
+        filterList = ["title","author", "newsDescription", "content" ]
+    }
+    
     @IBAction func filterBtnAction(_ sender: Any) {
         
         if isFilterexpanded == false{
@@ -172,7 +198,7 @@ class ViewController: UIViewController {
             })
         } else {
             isFilterexpanded = false
-            UIView.animate(withDuration: 1, delay: 0, animations: { [weak self] in
+            UIView.animate(withDuration: 0.5, delay: 0, animations: { [weak self] in
                 self?.headerViewHeightConstant.constant = 90
                 self?.view.layoutIfNeeded()
                 self?.filterListView.isHidden = true
@@ -269,7 +295,7 @@ class ViewController: UIViewController {
                 refreshNewsList()
             } else {
                 isSearch = true
-                CoreDataHelper.shared.searchNews(catagory: selectedCatagory, searchText: searchText)
+                CoreDataHelper.shared.searchNews(catagory: selectedCatagory, searchText: searchText, filterList: filterList)
                 refreshNewsList()
             }
             
@@ -304,12 +330,12 @@ extension ViewController : UICollectionViewDataSource {
             
             if indexPath.row == selectedCatagoryIndex {
                 catagoryCollectionViewCell.catagoryTitle.font = UIFont.boldSystemFont(ofSize: 13.0)
-                catagoryCollectionViewCell.iconBackground.backgroundColor = UIColor(hex: 0x082650)
-                catagoryCollectionViewCell.catagoryImage.tintColor = .white
+                catagoryCollectionViewCell.iconBackground.backgroundColor = UIColor(named: "CatagoryColorSelected")
+                catagoryCollectionViewCell.catagoryImage.tintColor = UIColor(named: "CatagoryColorDeselected")
             } else {
                 catagoryCollectionViewCell.catagoryTitle.font = UIFont.systemFont(ofSize: 13)
-                catagoryCollectionViewCell.iconBackground.backgroundColor = UIColor(hex: 0xE5E5E9)
-                catagoryCollectionViewCell.catagoryImage.tintColor = UIColor(hex: 0x082650)
+                catagoryCollectionViewCell.iconBackground.backgroundColor = UIColor(named: "CatagoryColorDeselected")
+                catagoryCollectionViewCell.catagoryImage.tintColor = UIColor(named: "CatagoryColorSelected")
                 
             }
                 return catagoryCollectionViewCell
@@ -329,10 +355,9 @@ extension ViewController : UICollectionViewDataSource {
             {
                 newsCollectionViewCell.addBookmarkBtn.tintColor = UIColor.systemGreen
             } else {
-                newsCollectionViewCell.addBookmarkBtn.tintColor = UIColor.systemGray5
+                newsCollectionViewCell.addBookmarkBtn.tintColor = UIColor(named: "bookmark Color")
             }
-            
-            //newsCollectionViewCell.newsImage.sd_setImage(with: URL(string: NewsModel.newsList[indexPath.row].urlToImage ?? ""))
+          
             newsCollectionViewCell.newsImage.sd_setImage(with: URL(string: NewsModel.newsList[indexPath.row].urlToImage ?? ""), placeholderImage: UIImage(named: "placeHolder"))
                 
                 return newsCollectionViewCell
@@ -355,8 +380,8 @@ extension ViewController: UICollectionViewDelegate {
                 
                 if let selectedCell = catagoryCollectionView.cellForItem(at: indexPath) as? CatagoryCVCell {
                     selectedCell.catagoryTitle.font = UIFont.boldSystemFont(ofSize: 13.0)
-                    selectedCell.iconBackground.backgroundColor = UIColor(hex: 0x082650)
-                    selectedCell.catagoryImage.tintColor = .white
+                    selectedCell.iconBackground.backgroundColor = UIColor(named: "CatagoryColorSelected")
+                    selectedCell.catagoryImage.tintColor = UIColor(named: "CatagoryColorDeselected")
                     
                     selectedCatagory = Catagory.catagoryList[indexPath.row].name!
                     deSelectedCatagoryIndex = selectedCatagoryIndex
@@ -369,8 +394,8 @@ extension ViewController: UICollectionViewDelegate {
                 
                 if let deselectedCell = catagoryCollectionView.cellForItem(at: deselectedIndexPath) as? CatagoryCVCell {
                     deselectedCell.catagoryTitle.font = UIFont.systemFont(ofSize: 13)
-                    deselectedCell.iconBackground.backgroundColor = UIColor(hex: 0xE5E5E9)
-                    deselectedCell.catagoryImage.tintColor = UIColor(hex: 0x082650)
+                    deselectedCell.iconBackground.backgroundColor = UIColor(named: "CatagoryColorDeselected")
+                    deselectedCell.catagoryImage.tintColor = UIColor(named: "CatagoryColorSelected")
                 }
                 
                 

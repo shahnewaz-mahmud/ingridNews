@@ -20,5 +20,11 @@ class Constants {
     static let segueToNewsWebId = "segueToNewsWeb"
     
     static let userDefaultsUser = "User"
+    
+    
+    //color
+    
+    static let darkBlue = 0x1d0f4a
+    static let lightBlue = 0x281C54
 }
  

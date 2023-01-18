@@ -16,6 +16,9 @@ class BookmarkedNewsVC: UIViewController {
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var tabBarBackground: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var backgroundView: UIView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +34,7 @@ class BookmarkedNewsVC: UIViewController {
         
         searchField.addTarget(self, action: #selector(searchNews), for: .editingChanged)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(refreshBookmarkList), name: Constants.refreshBookmarkListNotificationName, object: nil)
+        
         
         
    
@@ -41,6 +44,8 @@ class BookmarkedNewsVC: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.barTintColor = .clear
         self.tabBarController?.tabBar.backgroundImage = UIImage()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshBookmarkList), name: Constants.refreshBookmarkListNotificationName, object: nil)
 
     }
     
@@ -63,6 +68,7 @@ class BookmarkedNewsVC: UIViewController {
         tabBarBackground.layer.cornerRadius = 25
     
     }
+    
     
     @objc func searchNews()
     {
