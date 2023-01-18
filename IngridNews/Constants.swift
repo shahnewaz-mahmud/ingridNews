@@ -11,6 +11,7 @@ import Foundation
 class Constants {
     static let CatagoryCVCellId = "CatagoryCVCell"
     static let newsCVCellId = "NewsCVCell"
+    static let newsCVCellId2 = "NewsCVCell2"
     static let segueToNewsDetailsId = "gotToNewsDetails"
     static let bookmarkedNewsTVCellId = "BookmarkedNewsTVCell"
     static let refreshBookmarkListNotificationName = Notification.Name("refreshBookmarkList")

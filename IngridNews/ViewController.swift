@@ -44,6 +44,8 @@ class ViewController: UIViewController {
     
     var isSearch = false
     
+    var selectedTheme = "A"
+    
     
     
     override func viewDidLoad() {
@@ -155,6 +157,7 @@ class ViewController: UIViewController {
             } else {
                 windowScene.keyWindow?.overrideUserInterfaceStyle = .light
             }
+            selectedTheme = userInfo.theme
         }
     }
     
@@ -183,11 +186,23 @@ class ViewController: UIViewController {
     func configureNewsCell(){
         let newsCollectionCellNib = UINib(nibName: Constants.newsCVCellId, bundle: nil)
         newsCollectionView.register(newsCollectionCellNib, forCellWithReuseIdentifier: Constants.newsCVCellId)
+        
+        let newsCollectionCellNib2 = UINib(nibName: Constants.newsCVCellId2, bundle: nil)
+        newsCollectionView.register(newsCollectionCellNib2, forCellWithReuseIdentifier: Constants.newsCVCellId2)
+        if selectedTheme == "A" {
+            let collectionViewCellLayout = UICollectionViewFlowLayout()
+            collectionViewCellLayout.itemSize = CGSize(width: 130, height: 130)
+            collectionViewCellLayout.scrollDirection = .vertical
+            newsCollectionView.collectionViewLayout = collectionViewCellLayout
+        } else if (selectedTheme == "B") {
+            newsCollectionView.collectionViewLayout = singleItemViewLayout()
+        } else {
+            newsCollectionView.collectionViewLayout = gridViewLayout()
+        }
 
-        let collectionViewCellLayout = UICollectionViewFlowLayout()
-        collectionViewCellLayout.itemSize = CGSize(width: 130, height: 130)
-        collectionViewCellLayout.scrollDirection = .vertical
-        newsCollectionView.collectionViewLayout = collectionViewCellLayout
+
+        
+        
     }
     
     func configureSearchFilter() {
@@ -316,6 +331,56 @@ class ViewController: UIViewController {
             
         }
     }
+    
+    
+    func gridViewLayout() -> UICollectionViewCompositionalLayout {
+        let insets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
+        
+        let leftItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/2), heightDimension: .fractionalHeight(1))
+        
+        let leftItem = NSCollectionLayoutItem(layoutSize: leftItemSize)
+        
+        leftItem.contentInsets = insets
+        
+        let rightItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/2), heightDimension: .fractionalHeight(1))
+        
+        let rightItem = NSCollectionLayoutItem(layoutSize: rightItemSize)
+        
+        rightItem.contentInsets = insets
+        
+        let outerGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(1.5))
+        let outerGroup = NSCollectionLayoutGroup.horizontal(layoutSize: outerGroupSize, subitems: [leftItem, rightItem])
+        
+        let section = NSCollectionLayoutSection(group: outerGroup)
+        
+        let compositionalLayout = UICollectionViewCompositionalLayout(section: section)
+        return compositionalLayout
+    }
+    
+    func singleItemViewLayout() -> UICollectionViewCompositionalLayout {
+        let insets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+        
+        let leftItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        
+        let leftItem = NSCollectionLayoutItem(layoutSize: leftItemSize)
+        
+        leftItem.contentInsets = insets
+        
+        let rightItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        
+        let rightItem = NSCollectionLayoutItem(layoutSize: rightItemSize)
+        
+        rightItem.contentInsets = insets
+        
+        let outerGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(1))
+        let outerGroup = NSCollectionLayoutGroup.vertical(layoutSize: outerGroupSize, subitems: [leftItem, rightItem])
+        
+        let section = NSCollectionLayoutSection(group: outerGroup)
+        
+        let compositionalLayout = UICollectionViewCompositionalLayout(section: section)
+        return compositionalLayout
+    }
+
 
 
 }
@@ -356,9 +421,9 @@ extension ViewController : UICollectionViewDataSource {
                 return catagoryCollectionViewCell
                 
             case 1:
-                let newsCollectionViewCell = newsCollectionView.dequeueReusableCell(withReuseIdentifier: Constants.newsCVCellId, for: indexPath) as! NewsCVCell
             
-            
+            let newsCollectionViewCell = newsCollectionView.dequeueReusableCell(withReuseIdentifier: (selectedTheme == "A") ? Constants.newsCVCellId : Constants.newsCVCellId2, for: indexPath) as! NewsCVCell
+        
             newsCollectionViewCell.addBookmarkBtn.addTarget(newsCollectionViewCell, action: #selector(newsCollectionViewCell.addBookmarkBtnAction(_:)), for: .touchUpInside)
 
             newsCollectionViewCell.newsTitle.text = NewsModel.newsList[indexPath.row].title

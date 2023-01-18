@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NewsCVCell2" id="gTV-IL-0wX" customClass="NewsCVCell" customModule="IngridNews" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="476" height="300"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="476" height="300"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XdK-1w-neh">
+                        <rect key="frame" x="10" y="10" width="456" height="280"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="road" translatesAutoresizingMaskIntoConstraints="NO" id="U9B-dg-Gph">
+                                <rect key="frame" x="27" y="25" width="402" height="140"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="OG Bitcoin Core Developer Claims Hack Drained Nearly All His BTC" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmL-g1-IEk">
+                                <rect key="frame" x="20" y="175" width="416" height="25"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0B-Af-oOO">
+                                <rect key="frame" x="20" y="205" width="416" height="31.5"/>
+                                <string key="text">Even cryptocurrency’s most accomplished tech wizards apparently aren’t immune from the occasional wallet-draining hack. Luke Dashjr, one of the original core developers for Bitcoin, claims that someone swiped hundreds of BTC from his accounts late last year</string>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWZ-P8-Wb5">
+                                <rect key="frame" x="20" y="246.5" width="25" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Author" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZP-cP-nMh">
+                                <rect key="frame" x="400.5" y="246.5" width="35.5" height="13.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCl-d5-z3G">
+                                <rect key="frame" x="417" y="0.0" width="19" height="23.5"/>
+                                <color key="tintColor" name="bookmark Color"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="bookmark.fill" catalog="system" title="">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="addBookmarkBtnAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="rqq-tM-p0t"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="Main Color"/>
+                        <constraints>
+                            <constraint firstItem="LCl-d5-z3G" firstAttribute="width" secondItem="XdK-1w-neh" secondAttribute="width" multiplier="0.0420168" id="0Hr-gh-z6w"/>
+                            <constraint firstItem="O0B-Af-oOO" firstAttribute="top" secondItem="tmL-g1-IEk" secondAttribute="bottom" constant="5" id="1BJ-x2-9XS"/>
+                            <constraint firstItem="tmL-g1-IEk" firstAttribute="leading" secondItem="XdK-1w-neh" secondAttribute="leading" constant="20" id="1GE-DK-tP1"/>
+                            <constraint firstItem="O0B-Af-oOO" firstAttribute="leading" secondItem="XdK-1w-neh" secondAttribute="leading" constant="20" id="5Ft-lQ-mpg"/>
+                            <constraint firstItem="LWZ-P8-Wb5" firstAttribute="leading" secondItem="XdK-1w-neh" secondAttribute="leading" constant="20" id="6CX-Jr-KkN"/>
+                            <constraint firstItem="mZP-cP-nMh" firstAttribute="top" secondItem="O0B-Af-oOO" secondAttribute="bottom" constant="10" id="D49-oE-qFP"/>
+                            <constraint firstItem="U9B-dg-Gph" firstAttribute="top" secondItem="XdK-1w-neh" secondAttribute="top" constant="25" id="FGg-E8-ZIx"/>
+                            <constraint firstItem="LCl-d5-z3G" firstAttribute="top" secondItem="XdK-1w-neh" secondAttribute="top" id="FvN-yZ-z4Q"/>
+                            <constraint firstAttribute="bottom" secondItem="mZP-cP-nMh" secondAttribute="bottom" constant="20" id="Ghq-qB-uht"/>
+                            <constraint firstAttribute="trailing" secondItem="mZP-cP-nMh" secondAttribute="trailing" constant="20" id="PK6-Yw-eFs"/>
+                            <constraint firstItem="LCl-d5-z3G" firstAttribute="height" secondItem="XdK-1w-neh" secondAttribute="height" multiplier="0.0833333" id="PeE-mZ-h44"/>
+                            <constraint firstItem="O0B-Af-oOO" firstAttribute="centerX" secondItem="XdK-1w-neh" secondAttribute="centerX" id="RMo-Df-tmL"/>
+                            <constraint firstItem="tmL-g1-IEk" firstAttribute="centerX" secondItem="XdK-1w-neh" secondAttribute="centerX" id="RZf-xO-KMz"/>
+                            <constraint firstItem="U9B-dg-Gph" firstAttribute="height" secondItem="XdK-1w-neh" secondAttribute="height" multiplier="0.5" id="UDS-cV-Awc"/>
+                            <constraint firstItem="LWZ-P8-Wb5" firstAttribute="top" secondItem="O0B-Af-oOO" secondAttribute="bottom" constant="10" id="ddL-eH-Use"/>
+                            <constraint firstItem="U9B-dg-Gph" firstAttribute="centerX" secondItem="XdK-1w-neh" secondAttribute="centerX" id="imo-Tu-m22"/>
+                            <constraint firstAttribute="trailing" secondItem="LCl-d5-z3G" secondAttribute="trailing" constant="20" id="mlK-dN-PrQ"/>
+                            <constraint firstItem="U9B-dg-Gph" firstAttribute="width" secondItem="XdK-1w-neh" secondAttribute="width" multiplier="0.882353" id="nS7-CY-1DF"/>
+                            <constraint firstItem="tmL-g1-IEk" firstAttribute="top" secondItem="U9B-dg-Gph" secondAttribute="bottom" constant="10" id="v8r-KS-AZ2"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="XdK-1w-neh" secondAttribute="trailing" constant="10" id="k19-9u-9JZ"/>
+                <constraint firstItem="XdK-1w-neh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="xCB-SE-Dgh"/>
+                <constraint firstItem="XdK-1w-neh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="z2g-Ru-szv"/>
+                <constraint firstAttribute="bottom" secondItem="XdK-1w-neh" secondAttribute="bottom" constant="10" id="zHB-0c-gS8"/>
+            </constraints>
+            <size key="customSize" width="476" height="300"/>
+            <connections>
+                <outlet property="addBookmarkBtn" destination="LCl-d5-z3G" id="8Tl-1S-6uK"/>
+                <outlet property="newsAuthor" destination="mZP-cP-nMh" id="QlQ-F0-3QM"/>
+                <outlet property="newsBackground" destination="XdK-1w-neh" id="NSx-tg-RYt"/>
+                <outlet property="newsDate" destination="LWZ-P8-Wb5" id="5c0-Od-vWo"/>
+                <outlet property="newsDescription" destination="O0B-Af-oOO" id="aIe-p7-NiE"/>
+                <outlet property="newsImage" destination="U9B-dg-Gph" id="jxq-PC-aY9"/>
+                <outlet property="newsTitle" destination="tmL-g1-IEk" id="gkS-VA-4Fi"/>
+            </connections>
+            <point key="canvasLocation" x="446.37681159420293" y="150.66964285714286"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="bookmark.fill" catalog="system" width="112" height="128"/>
+        <image name="road" width="600" height="600"/>
+        <namedColor name="Main Color">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="bookmark Color">
+            <color white="0.79699999094009399" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

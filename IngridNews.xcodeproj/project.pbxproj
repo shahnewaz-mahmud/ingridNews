@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		353814EE29786F7400148CE5 /* NewsCVCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 353814EC29786F7400148CE5 /* NewsCVCell2.xib */; };
 		3584710329745C7B00B4750A /* BookmarkedNewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3584710229745C7B00B4750A /* BookmarkedNewsVC.swift */; };
 		358471072974605900B4750A /* BookmarkedNewsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358471052974605900B4750A /* BookmarkedNewsTVCell.swift */; };
 		358471082974605900B4750A /* BookmarkedNewsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 358471062974605900B4750A /* BookmarkedNewsTVCell.xib */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		16333CCE18A185DD4F7B499A /* Pods-IngridNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IngridNews.release.xcconfig"; path = "Target Support Files/Pods-IngridNews/Pods-IngridNews.release.xcconfig"; sourceTree = "<group>"; };
+		353814EC29786F7400148CE5 /* NewsCVCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCVCell2.xib; sourceTree = "<group>"; };
 		3584710229745C7B00B4750A /* BookmarkedNewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkedNewsVC.swift; sourceTree = "<group>"; };
 		358471052974605900B4750A /* BookmarkedNewsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkedNewsTVCell.swift; sourceTree = "<group>"; };
 		358471062974605900B4750A /* BookmarkedNewsTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookmarkedNewsTVCell.xib; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				89CD57F429715FCF00BD1B86 /* NewsList.swift */,
 				89DCABE82970188700DA12BC /* NewsCVCell.swift */,
 				89DCABE92970188700DA12BC /* NewsCVCell.xib */,
+				353814EC29786F7400148CE5 /* NewsCVCell2.xib */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			files = (
 				8996B627296FB3C100031905 /* LaunchScreen.storyboard in Resources */,
 				358471082974605900B4750A /* BookmarkedNewsTVCell.xib in Resources */,
+				353814EE29786F7400148CE5 /* NewsCVCell2.xib in Resources */,
 				8996B624296FB3C100031905 /* Assets.xcassets in Resources */,
 				8996B638296FEF2500031905 /* CatagoryCVCell.xib in Resources */,
 				8996B61F296FB3BC00031905 /* Main.storyboard in Resources */,
