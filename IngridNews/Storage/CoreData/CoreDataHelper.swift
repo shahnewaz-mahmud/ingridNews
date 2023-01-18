@@ -18,24 +18,19 @@ class CoreDataHelper{
     
     func addNews(news: News, catagory: String){
         
-        let newNews = NewsModel(context: context)
-        
-        newNews.newsId = news.url
-        newNews.title = news.title
-        newNews.author = news.author
-        newNews.newsDescription = news.description
-        newNews.url = news.url
-        newNews.urlToImage = news.urlToImage
-        newNews.publishedAt = news.publishedAt
-        newNews.content = news.content
-        newNews.catagoryName = catagory
-        newNews.isBookMarked = false
-
-        do {
-            try context.save()
-        } catch {
-            print(error)
-        }
+        guard let id = news.url, let title = news.title, let author = news.author, let description = news.description, let url = news.url, let urlToImage = news.urlToImage, let publishedAt = news.publishedAt, let content = news.content else { return }
+                
+            let newNews = NewsModel(context: context)
+            newNews.newsId = id
+            newNews.title = title
+            newNews.author = author
+            newNews.newsDescription = description
+            newNews.url = url
+            newNews.urlToImage = urlToImage
+            newNews.publishedAt = publishedAt
+            newNews.content = content
+            newNews.catagoryName = catagory
+            newNews.isBookMarked = false
        
     }
     

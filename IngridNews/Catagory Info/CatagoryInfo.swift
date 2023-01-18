@@ -15,6 +15,7 @@ struct Catagory {
 extension Catagory {
     static let catagoryList = [ Catagory(name: "All", img: "newspaper"),
                                 Catagory(name: "Business", img: "dollarsign.square"),
+                                Catagory(name: "Entertainment", img: "tv.music.note"),
                                 Catagory(name: "General", img: "books.vertical"),
                                 Catagory(name: "Health", img: "stethoscope"),
                                 Catagory(name: "Science", img: "brain.head.profile"),

@@ -30,8 +30,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bIr-7t-Rtr">
                                 <rect key="frame" x="33.5" y="15" width="63" height="62"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="books.vertical" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="aXE-vR-LRh">
-                                        <rect key="frame" x="12" y="16" width="39" height="29"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tv.music.note" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="aXE-vR-LRh">
+                                        <rect key="frame" x="12" y="17.5" width="39" height="27"/>
                                         <color key="tintColor" red="0.031372549020000001" green="0.14901960780000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </imageView>
                                 </subviews>
@@ -75,9 +75,9 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="books.vertical" catalog="system" width="128" height="107"/>
+        <image name="tv.music.note" catalog="system" width="128" height="97"/>
         <namedColor name="Main Color">
-            <color red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

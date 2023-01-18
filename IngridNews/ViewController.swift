@@ -56,6 +56,7 @@ class ViewController: UIViewController {
         configureCatagoryCell()
         configureNewsCell()
         configureSearchFilter()
+        configureTheme()
        
         
         catagoryCollectionView.dataSource = self
@@ -144,6 +145,17 @@ class ViewController: UIViewController {
             filterList = filterList.filter { $0 != "content" }
         }
         
+    }
+    
+    func configureTheme(){
+        let userInfo = UserDefaultsHelper.shared.getSavedData(key: Constants.userDefaultsUser)
+        if let userInfo = userInfo, let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+            if userInfo.isDarkmode {
+                windowScene.keyWindow?.overrideUserInterfaceStyle = .dark
+            } else {
+                windowScene.keyWindow?.overrideUserInterfaceStyle = .light
+            }
+        }
     }
     
     
@@ -246,9 +258,12 @@ class ViewController: UIViewController {
                 let newsList = try! JSONDecoder().decode(NewsList.self, from: data!)
                 
                 if let articles = newsList.articles {
-                    for i in 0...articles.count-1{
-                        CoreDataHelper.shared.addNews(news: articles[i], catagory: catagory)
+                    if articles.count > 0{
+                        for i in 0...articles.count-1{
+                            CoreDataHelper.shared.addNews(news: articles[i], catagory: catagory)
+                        }
                     }
+                    
                 }
                 
                 CoreDataHelper.shared.getAllNews(catagory: catagory, lastIndex: 0)

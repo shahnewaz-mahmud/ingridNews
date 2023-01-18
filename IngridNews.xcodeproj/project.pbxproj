@@ -155,13 +155,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		893E20F129766C6600CBCAB6 /* Pagination */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pagination;
-			sourceTree = "<group>";
-		};
 		8996B60B296FB3BC00031905 = {
 			isa = PBXGroup;
 			children = (
@@ -184,7 +177,6 @@
 			isa = PBXGroup;
 			children = (
 				8996DDDD2977A3D000302AF7 /* SettingsVC.swift */,
-				893E20F129766C6600CBCAB6 /* Pagination */,
 				35BA0758297274E300E878EC /* Shared */,
 				89CD57E329714F5000BD1B86 /* Storage */,
 				8996B632296FDE7300031905 /* Constants.swift */,

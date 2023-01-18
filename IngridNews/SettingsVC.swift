@@ -30,40 +30,43 @@ class SettingsVC: UIViewController {
         headerBackground.layer.cornerRadius = 40
         headerBackground.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         headerBackground.dropShadow()
+        
+        let userInfo = UserDefaultsHelper.shared.getSavedData(key: Constants.userDefaultsUser)
+        if let userInfo = userInfo{
+            if userInfo.isDarkmode {
+                darkModetoggle.setOn(true, animated: true)
+            } else {
+                darkModetoggle.setOn(false, animated: true)
+            }
+        }
     }
     
     
     @IBAction func darkModeToggleAction(_ sender: Any) {
-        let appDelegate = UIApplication.shared.windows.first
+ 
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+            if darkModetoggle.isOn{
+                let userInfo = UserDefaultsHelper.shared.getSavedData(key: Constants.userDefaultsUser)
+                guard var userInfo = userInfo else {
+                    return
+                }
+                userInfo.isDarkmode = true
+                UserDefaultsHelper.shared.saveData(userInfo: userInfo, key: Constants.userDefaultsUser)
+                
+                windowScene.keyWindow?.overrideUserInterfaceStyle = .dark
+            } else {
+                
+                let userInfo = UserDefaultsHelper.shared.getSavedData(key: Constants.userDefaultsUser)
+                guard var userInfo = userInfo else {
+                    return
+                }
+                userInfo.isDarkmode = false
+                UserDefaultsHelper.shared.saveData(userInfo: userInfo, key: Constants.userDefaultsUser)
+                windowScene.keyWindow?.overrideUserInterfaceStyle = .light
+            }
+        }
         
-        if darkModetoggle.isOn{
-           print("on")
-            
-            let userInfo = UserDefaultsHelper.shared.getSavedData(key: Constants.userDefaultsUser)
-            guard var userInfo = userInfo else {
-                return
-            }
-            userInfo.isDarkmode = true
-            UserDefaultsHelper.shared.saveData(userInfo: userInfo, key: Constants.userDefaultsUser)
-            
-            appDelegate?.overrideUserInterfaceStyle = .dark
-            
-        }
-        else
-        {
-           print("Off")
-            
-            let userInfo = UserDefaultsHelper.shared.getSavedData(key: Constants.userDefaultsUser)
-            guard var userInfo = userInfo else {
-                return
-            }
-            userInfo.isDarkmode = false
-            UserDefaultsHelper.shared.saveData(userInfo: userInfo, key: Constants.userDefaultsUser)
-            
-            appDelegate?.overrideUserInterfaceStyle = .light
-
-            
-        }
+        
     }
     
 }
