@@ -16,8 +16,6 @@ class NewsWebVC: UIViewController {
     @IBOutlet weak var newsWebView: WKWebView!
     
     var webURL = ""
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +29,6 @@ class NewsWebVC: UIViewController {
         if let url = url {
             newsWebView.load(URLRequest(url: url))
         }
-        
-       
-        
-        
-
     }
 
 }

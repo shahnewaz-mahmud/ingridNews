@@ -20,7 +20,6 @@ class NewsDetailsVC: UIViewController {
     @IBOutlet weak var newsContent: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var newsCatagory: UILabel!
-    
     @IBOutlet weak var addBookmarkBtn: UIButton!
     
     var newsTitleTxt = ""
@@ -67,6 +66,9 @@ class NewsDetailsVC: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
+    /**
+     assign news source link before segue to web view VC
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.segueToNewsWebId {
             if let destination = segue.destination as? NewsWebVC {
@@ -76,7 +78,9 @@ class NewsDetailsVC: UIViewController {
         }
     }
     
-    
+    /**
+     Add bookmark action from newsDetails page.
+     */
     @IBAction func addBookmarkAction(_ sender: Any) {
         if isBookMarked == false {
             NewsModel.newsList[newsIndex].isBookMarked = true
@@ -91,8 +95,4 @@ class NewsDetailsVC: UIViewController {
     @IBAction func continueReadingBtnAction(_ sender: Any) {
         performSegue(withIdentifier: Constants.segueToNewsWebId, sender: nil)
     }
-    
-    
-    
-
 }

@@ -23,10 +23,12 @@ class NewsCVCell: UICollectionViewCell {
         newsBackground.layer.cornerRadius = 20
         newsBackground.dropShadow()
         newsImage.layer.cornerRadius = 15
-        
-        // Initialization code
     }
     
+    
+    /**
+     add the news to bookmark coredata table and update the bookmark flag of news coredata table
+     */
     @IBAction func addBookmarkBtnAction(_ sender: Any) {
         guard let collectionView = self.superview as? UICollectionView else { return }
         if let indexPath = collectionView.indexPath(for: self) {
@@ -39,9 +41,6 @@ class NewsCVCell: UICollectionViewCell {
             
         }
     }
-    
- 
-
 }
 
 extension UIView {

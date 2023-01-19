@@ -22,8 +22,8 @@ class BookmarkedNewsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureHeaderSection()
         
+        configureHeaderSection()
         CoreDataHelper.shared.getAllSavedNews()
         
         tableView.dataSource = self
@@ -32,15 +32,15 @@ class BookmarkedNewsVC: UIViewController {
         let bookmarkedNewsNib = UINib(nibName: Constants.bookmarkedNewsTVCellId, bundle: nil)
         tableView.register(bookmarkedNewsNib, forCellReuseIdentifier: Constants.bookmarkedNewsTVCellId)
         
+        //trigger the searchNews function whenever any change occurs
         searchField.addTarget(self, action: #selector(searchNews), for: .editingChanged)
-        
-        
-        
-        
-   
     }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        //to solve nav and tab bar white fade color glitch on tableView scrolling
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.barTintColor = .clear
         self.tabBarController?.tabBar.backgroundImage = UIImage()
@@ -52,24 +52,30 @@ class BookmarkedNewsVC: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.isHidden = false
+        NotificationCenter.default.post(name: Constants.refreshNewsListNotificationName, object: nil)
     }
+    
     
     @objc func refreshBookmarkList() {
         tableView.reloadSections([0], with: .fade)
     }
     
+    /**
+     Configuring the header and tab bar design.
+     */
     func configureHeaderSection(){
-        
         headerViewBackground.clipsToBounds = true
         headerViewBackground.layer.cornerRadius = 25
         headerViewBackground.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         headerViewBackground.dropShadow()
         searchField.padding = 30
         tabBarBackground.layer.cornerRadius = 25
-    
     }
     
-    
+    /**
+     Search Saved news whenever user enters anything in the searchField.
+     If the searchField is empty it'll fetch all Saved news
+     */
     @objc func searchNews()
     {
         if let searchText = searchField.text {
@@ -80,11 +86,8 @@ class BookmarkedNewsVC: UIViewController {
                 CoreDataHelper.shared.searchSavedNews(searchText: searchText)
                 refreshBookmarkList()
             }
-            
         }
     }
-
-
 }
 
 extension BookmarkedNewsVC: UITableViewDataSource {
@@ -108,6 +111,8 @@ extension BookmarkedNewsVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        //Initiate Swipe to delete action
         let deleteTaskAction = UIContextualAction(style: .destructive, title: nil) {
             [weak self] _,_,_ in
             
@@ -133,11 +138,12 @@ extension BookmarkedNewsVC: UITableViewDataSource {
 }
 
 extension BookmarkedNewsVC: UITableViewDelegate {
-    
+    //Segue to newsDetails VC from bookmark table
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: Constants.segueToNewsDetailsFromBookmarkId, sender: nil)
     }
     
+    //Assign the newsInfo before NewsDetails Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.segueToNewsDetailsFromBookmarkId {
             if let destination = segue.destination as? NewsDetailsVC {
@@ -154,12 +160,5 @@ extension BookmarkedNewsVC: UITableViewDelegate {
                 destination.webURL = SavedNewsModel.savedNewsList[selectedIndex].url ?? ""
             }
         }
-    }
-    
-
-    
-        
-  
-     
-    
+    }   
 }

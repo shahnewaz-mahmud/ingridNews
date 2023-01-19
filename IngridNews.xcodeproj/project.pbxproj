@@ -179,23 +179,23 @@
 		8996B616296FB3BC00031905 /* IngridNews */ = {
 			isa = PBXGroup;
 			children = (
-				8996DDDD2977A3D000302AF7 /* SettingsVC.swift */,
-				35BA0758297274E300E878EC /* Shared */,
-				89CD57E329714F5000BD1B86 /* Storage */,
+				89CD57F02971576B00BD1B86 /* API.swift */,
 				8996B632296FDE7300031905 /* Constants.swift */,
-				3584710429745C8600B4750A /* Bookmark */,
 				8996B617296FB3BC00031905 /* AppDelegate.swift */,
 				8996B619296FB3BC00031905 /* SceneDelegate.swift */,
-				8996B61B296FB3BC00031905 /* ViewController.swift */,
-				8996B61D296FB3BC00031905 /* Main.storyboard */,
+				35BA0758297274E300E878EC /* Shared */,
+				89CD57E329714F5000BD1B86 /* Storage */,
+				89E33D892978F5EB003BCD32 /* Home */,
+				35BA075C297279DA00E878EC /* Catagory Info */,
+				35BA075F297285D200E878EC /* News */,
 				35BA07662973081900E878EC /* NewsDetails */,
+				3584710429745C8600B4750A /* Bookmark */,
+				89E33D8A2978F601003BCD32 /* Settings */,
+				8996B61D296FB3BC00031905 /* Main.storyboard */,
 				8996B623296FB3C100031905 /* Assets.xcassets */,
 				8996B625296FB3C100031905 /* LaunchScreen.storyboard */,
 				8996B628296FB3C100031905 /* Info.plist */,
 				8996B620296FB3BC00031905 /* IngridNews.xcdatamodeld */,
-				35BA075C297279DA00E878EC /* Catagory Info */,
-				35BA075F297285D200E878EC /* News */,
-				89CD57F02971576B00BD1B86 /* API.swift */,
 			);
 			path = IngridNews;
 			sourceTree = "<group>";
@@ -220,6 +220,22 @@
 				893E20E9297647BC00CBCAB6 /* User.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		89E33D892978F5EB003BCD32 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8996B61B296FB3BC00031905 /* ViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		89E33D8A2978F601003BCD32 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				8996DDDD2977A3D000302AF7 /* SettingsVC.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

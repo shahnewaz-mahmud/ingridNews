@@ -61,7 +61,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" name="Main Color"/>
+                        <color key="backgroundColor" name="Cell Color"/>
                         <constraints>
                             <constraint firstItem="LCl-d5-z3G" firstAttribute="width" secondItem="XdK-1w-neh" secondAttribute="width" multiplier="0.0420168" id="0Hr-gh-z6w"/>
                             <constraint firstItem="O0B-Af-oOO" firstAttribute="top" secondItem="tmL-g1-IEk" secondAttribute="bottom" constant="5" id="1BJ-x2-9XS"/>
@@ -109,8 +109,8 @@
     <resources>
         <image name="bookmark.fill" catalog="system" width="112" height="128"/>
         <image name="road" width="600" height="600"/>
-        <namedColor name="Main Color">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Cell Color">
+            <color red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="bookmark Color">
             <color white="0.79699999094009399" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

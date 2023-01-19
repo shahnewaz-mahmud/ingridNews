@@ -14,9 +14,9 @@
             filePath = "IngridNews/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
-            landmarkName = "syncNews(catagory:)"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
+            landmarkName = "handlePullRefresh(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -30,42 +30,10 @@
             filePath = "IngridNews/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
-            landmarkName = "syncNews(catagory:)"
+            startingLineNumber = "256"
+            endingLineNumber = "256"
+            landmarkName = "handlePullRefresh(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "4B50A7E2-A3AB-4ED2-AA3B-33819B08B6D3 - ffe6e428043e8ec8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in IngridNews.ViewController.syncNews(catagory: Swift.String) -&gt; ()"
-                  moduleName = "IngridNews"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bjit/Documents/Works/2023/12%20Jan/ingridNews/IngridNews/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "246"
-                  endingLineNumber = "246"
-                  offsetFromSymbolStart = "1491">
-               </Location>
-               <Location
-                  uuid = "4B50A7E2-A3AB-4ED2-AA3B-33819B08B6D3 - ffe6e428043e8ec8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in IngridNews.ViewController.syncNews(catagory: Swift.String) -&gt; ()"
-                  moduleName = "IngridNews"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bjit/Documents/Works/2023/12%20Jan/ingridNews/IngridNews/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "246"
-                  endingLineNumber = "246"
-                  offsetFromSymbolStart = "1539">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -78,9 +46,9 @@
             filePath = "IngridNews/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246"
-            landmarkName = "syncNews(catagory:)"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
+            landmarkName = "refreshNewsList()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -94,9 +62,9 @@
             filePath = "IngridNews/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
-            landmarkName = "syncNews(catagory:)"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
+            landmarkName = "handlePullRefresh(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -110,10 +78,10 @@
             filePath = "IngridNews/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "254"
-            endingLineNumber = "254"
-            landmarkName = "syncNews(catagory:)"
-            landmarkType = "7">
+            startingLineNumber = "262"
+            endingLineNumber = "262"
+            landmarkName = "ViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -126,9 +94,9 @@
             filePath = "IngridNews/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "255"
-            endingLineNumber = "255"
-            landmarkName = "syncNews(catagory:)"
+            startingLineNumber = "263"
+            endingLineNumber = "263"
+            landmarkName = "fetchNews(catagory:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -142,25 +110,9 @@
             filePath = "IngridNews/Storage/CoreData/CoreDataHelper.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "searchNews(catagory:searchText:filterList:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "EFEA6832-EBC3-42BB-B26F-55A667D6375D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IngridNews/NewsDetails/NewsDetailsVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
