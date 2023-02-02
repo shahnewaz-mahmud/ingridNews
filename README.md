@@ -5,6 +5,9 @@
 [![App Promo Video ]([https://img.youtube.com/vi/StTqXEQ2l-Y/0.jpg](https://user-images.githubusercontent.com/118235570/216223835-c449ff23-62b8-46ba-ac7b-09059e8311a0.jpg)] (http://www.youtube.com/watch?v=NzBU4Am_u_A "Ingrid News")
 
 
+[![Everything Is AWESOME](https://user-images.githubusercontent.com/118235570/216223835-c449ff23-62b8-46ba-ac7b-09059e8311a0.jpg)](https://youtu.be/NzBU4Am_u_A "Everything Is AWESOME")
+
+
 
 
 
